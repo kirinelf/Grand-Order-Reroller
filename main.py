@@ -9,7 +9,7 @@ from settings import PASSWORD, NAME
 
 ############
 # Settings #
-PAUSE_TIME = 1.5
+PAUSE_TIME = 2.0
 TIMING_MULT = 1.5
 CLOSENESS_THRESHOLD = 0.8
 ROLLS_FOLDER = 'rolls'
@@ -355,7 +355,7 @@ if __name__ == '__main__':
         skip_scene()
 
         wait_until('mission_select_protag_dimmed')
-        wait(8)
+        wait(5)
 
         while True:
             if image_is_on_screen('bonuses_received'):
@@ -388,41 +388,43 @@ if __name__ == '__main__':
         wait_until('next_button_during_tutorial_summon')
         touch(**NEXT)
         click_until('summon_button_after_tutorial_summon')
-
+        touch(x=50, y=75)											# Close
+		
         # YOLO Summons
 
-        touch(x=770, y=700)                                         # Summon Button
+#        touch(x=770, y=700)                                         # Summon Button
 
-        while True:
-            wait_until('1x_summon_button')
-            touch(x=450, y=600)                                     # 1x Summon
+#        while True:
+#            wait_until('1x_summon_button')
+#            touch(x=450, y=600)                                     # 1x Summon
 
-            result_1 = wait_until('not_enough_quartz',
-                                'enough_quartz')
+#            result_1 = wait_until('not_enough_quartz',
+#                                'enough_quartz')
 
-            if result_1 == 1:                                       # More Summons
-                touch(x=830, y=600)                                 # Confirm Summon
-                wait(5)                                             # CV is too fast
-                result_2 = click_until('lock',
-                                       'lock_enabled',
-                                       'summon_screen_close')
-                if (result_2 == 0) or (result_2 == 1):
-                    touch(x=50, y=75)                               # Close
+#            if result_1 == 1:                                       # More Summons
+#                touch(x=830, y=600)                                 # Confirm Summon
+#                wait(5)                                             # CV is too fast
+#                result_2 = click_until('lock',
+#                                       'lock_enabled',
+#                                       'summon_screen_close')
+#                if (result_2 == 0) or (result_2 == 1):
+#                    touch(x=50, y=75)                               # Close
 
-            else:                                                   # No More Summons
-                touch(x=440, y=600)
-                break
+#            else:                                                   # No More Summons
+#                touch(x=440, y=600)
+#                break
 
         # Take Screenshots
 
-        touch(**MENU)
-        touch(x=175, y=675)                                         # Formation
+        wait_until('setup_party_prompt_1')
+        touch(**MENU)                                               # Menu Button
+        touch(x=175, y=675)                                         # Formation	
         wait_until('party_formation_prompt_close')
         touch(x=1250, y=70)                                         # Close
         wait_until('party_formation_prompt_ready')
         touch(x=1000, y=200)                                        # Party Setup
         touch(x=330, y=330)                                         # Open Servants
-
+		
         wait_until('servant_list_ready')
 
         for _ in range(6):

@@ -17,37 +17,37 @@ possible_summons = {
     'gil_large': (200, 'Gilgamesh'),
     'saber': (200, 'Arturia'),
     'saber_large': (200, 'Arturia'),
-    'jeanne': (150, 'Jeanne'),
-    'jeanne_large': (150, 'Jeanne'),
-    'altera': (100, 'Altera'),
-    'vlad': (100, 'Vlad'),
-    'vlad_large': (100, 'Vlad'),
+    'jeanne': (200, 'Jeanne'),
+    'jeanne_large': (200, 'Jeanne'),
+#    'altera': (100, 'Altera'),
+#    'vlad': (100, 'Vlad'),
+#    'vlad_large': (100, 'Vlad'),
     'scope': (60, 'Kaleidoscope'),
     'scope_large': (60, 'Kaleidoscope'),
     'herc': (50, 'Heracles'),
     'herc_large': (50, 'Heracles'),
     'emiya': (50, 'EMIYA'),
     'emiya_large': (50, 'EMIYA'),
-    'loz': (45, 'Limited.Over Zero'),
-    'loz_large': (45, 'Limited.Over Zero'),
-    'hf': (45, 'Heaven\'s Feel'), 
-    'hf_large': (45, 'Heaven\'s Feel'),   
-    'liz': (40, 'Elizabeth'),   
-    'liz_large': (40, 'Elizabeth'), 
-    'sieg': (40, 'Siegfried'),
-    'sieg_large': (40, 'Siegfried'),
-    'craft': (40, 'Formal Craft'),
-    'lancelot': (40, 'Lancelot'),
-    'lancelot_large': (40, 'Lancelot'),
+#    'loz': (45, 'Limited.Over Zero'),
+#    'loz_large': (45, 'Limited.Over Zero'),
+#    'hf': (45, 'Heaven\'s Feel'), 
+#    'hf_large': (45, 'Heaven\'s Feel'),   
+#    'liz': (40, 'Elizabeth'),   
+#    'liz_large': (40, 'Elizabeth'), 
+#    'sieg': (40, 'Siegfried'),
+#    'sieg_large': (40, 'Siegfried'),
+#    'craft': (40, 'Formal Craft'),
+#    'lancelot': (40, 'Lancelot'),
+#    'lancelot_large': (40, 'Lancelot'),
     'prisma': (40, 'Prisma Cosmos'),
     'prisma_large': (40, 'Prisma Cosmos'),
-    'tamacat': (40, 'Tamano-cat'),
-    'tamacat_large': (40, 'Tamano-cat'),
-    'around': (30, 'Imaginary Around'),
-    'atalanta': (20, 'Atalanta'),
-    'atalanta_large': (20, 'Atalanta'),
-    'lily': (0, 'Saber Lily'),
-    'lily_large': (0, 'Saber Lily')
+#    'tamacat': (40, 'Tamano-cat'),
+#    'tamacat_large': (40, 'Tamano-cat'),
+#    'around': (30, 'Imaginary Around'),
+#    'atalanta': (20, 'Atalanta'),
+#    'atalanta_large': (20, 'Atalanta'),
+#    'lily': (0, 'Saber Lily'),
+#    'lily_large': (0, 'Saber Lily')
 }
 
 def send_notif(points, summons):
@@ -122,7 +122,7 @@ def gen_new_folder_name(folder, rolls_folder = 'rolls'):
             summons += summons_ces
             points += points_ces
 
-    new_folder = os.path.join(rolls_folder, '{} - {} pts - {}'.format(timestamp, points, (', '.join(summons) if points else 'Shit Roll')))[1:]
+    new_folder = os.path.join(rolls_folder, '{} - {} pts - {}'.format(timestamp, points, (', '.join(summons) if points else 'Bad Roll')))[1:]
 
     return (new_folder, summons, points)
 
@@ -135,5 +135,5 @@ if __name__ == '__main__':
                 for folder in folders:
                     rename_folder(folder, rolls_folder)
         except Exception as e:
-            pb.push_note('Ay Arshad, we fucked up - Mal', repr(e))
+            pb.push_note('Error scanning.', repr(e))
         time.sleep(120)
