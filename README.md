@@ -1,5 +1,5 @@
 # Grand-Order-Reroller
-Unattended rerolls for Fate/Grand Order
+Unattended rerolls for Fate/Grand Order, originally by chaosking121, edited by kirinelf.
 
 # Why It Exists
 I know MEmu has macro support, but if you ask anyone who uses it, you'll hear that they only automate up until the tutorial 10-roll because the fourth fight is non-determinisitic. You will also hear tips like leaving a lot of time between actions to account for variations in timing, which lengthens the time it takes for you to do a run. Also, in my experience, using MEmu's macros drastically reduced the stability of MEmu. 
@@ -15,7 +15,7 @@ This script solves some of those problems:
 - Ability to change and edit the script without redoing the entire macro, this script can easily be updated to account for changes in the tutorial in the future.
 
 However, it is not perfect. This method of rerolling has two major issues:
-- It requires mouse focus, so it's diffult to do anything else on the same PC at the same time. I have a laptop that I'm not using right now, so that's what I use for this script.
+- It requires mouse focus, so it's diffult to do anything else on the same PC at the same time. 
 - Only one instance, as a consequence of the above problem.
 
 # What It Does
@@ -92,13 +92,13 @@ Here's a look at it:
 
 
 # Screenshots
-In v3, I switched from PyAutoGUI's image detection to naive computer vision with opencv and numpy. This is much faster and produces much less false negatives. And most importantly for end users, it does not require you to retake all screenshots. 
+In v3, chaosking121 switched from PyAutoGUI's image detection to naive computer vision with opencv and numpy. This is much faster and produces much less false negatives. And most importantly for end users, it does not require you to retake all screenshots. 
 
 # Notes
 - You can adjust the timings for all time.sleep() calls and the delay between PyAutoGUI actions with the TIMING_MULT and PAUSE_TIME variables respectively.
 - I recommend using a VPN to avoid IP bans. Ideally a fully unattended setup would try to get a new IP by disconnecting from and reconnecting to the VPN, but it doesn't do that yet.
 - Possible issues:
-  - There have been instances where bind codes have been lost due to an unknown issue. Because of the rarity of the problem, I am unable to determine the cause. However, after losing an account I quite liked, I decided to implement some additional checks that should correct the issue should it occur.
+  - There have been instances where bind codes have been lost due to an unknown issue. Because of the rarity of the problem, I am unable to determine the cause. However, after losing an account he quite liked, chaosking121 decided to implement some additional checks that should correct the issue should it occur.
   
 # Clearing Data
 There's an apk included in this repo. If you install that apk then click the icon, it will clear the data and allow you to reroll without downloading any data or messing in ES File Exporer. The script assumes you will have this apk installed and its icon will be located on the home screen directly to the left of the Grand Order icon's default position in the ova linked above.
